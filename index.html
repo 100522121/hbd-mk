@@ -1,0 +1,776 @@
+    <!-- 
+     
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     ESTE 
+     ES 
+     EL 
+     CÓDIGO 
+     PARA 
+     UNA 
+     TARJETA 
+     DE 
+     CUMPLEAÑOS 
+     PARA 
+     MI 
+     AMIGA 
+     
+     ESTE
+     REPOSITORIO
+     ESTÁ
+     PÚBLICO
+     PORQUE
+     ES 
+     LA
+     ÚNICA
+     MANERA
+     DE
+     USAR
+     LAS
+     PAGES
+     DE
+     GITHUB
+     PARA
+     HOSTEAR
+     UNA 
+     PÁGINA
+     WEB
+
+     ENTONCES
+     ES
+     UN 
+     CÓDIGO
+     CON 
+     CONTENIDO
+     PERSONAL
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     SI 
+     ESTÁS 
+     LEYENDO
+     ESTO 
+     AÚN,
+
+     ERES
+     UNA
+     PERSONA
+     UN 
+     POCO...
+     CHISMOSA
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
+
+
+
+
+
+
+
+
+     -->
+     
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Feliz Cumpleaños Mokita</title>
+        
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+        
+        <!-- Tailwind CSS (Play CDN) -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+        <!-- React & Babel for standalone JSX -->
+        <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        
+        <!-- Framer Motion & Lucide -->
+        <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+        <script src="https://unpkg.com/lucide@latest"></script>
+
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ['Inter', 'sans-serif'],
+                            serif: ['Cormorant Garamond', 'serif'],
+                            handwriting: ['Dancing Script', 'cursive'],
+                        },
+                    }
+                }
+            }
+        </script>
+
+        <style>
+            html, body {
+                background-color: #0b0b0b !important;
+                color: white;
+                overflow-x: hidden;
+                margin: 0;
+                padding: 0;
+            }
+
+            .center-box {
+                height:100vh;
+                display:grid;
+                place-items: center;
+            }
+
+            .aurora-bg {
+                background-color: #0b0b0b;
+                background-image: 
+                    radial-gradient(circle at 20% 30%, rgba(255, 105, 180, 0.12) 0%, transparent 40%),
+                    radial-gradient(circle at 80% 70%, rgba(255, 182, 193, 0.08) 0%, transparent 40%),
+                    radial-gradient(circle at 50% 50%, rgba(135, 206, 235, 0.04) 0%, transparent 60%);
+                background-attachment: fixed;
+            }
+
+            .glass-card {
+                background: rgba(255, 255, 255, 0.03);
+                backdrop-filter: blur(16px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 2rem;
+                max-width: 500px;
+            }
+
+            .gradient-text {
+                background: linear-gradient(to right, #f9a8d4, #f472b6, #fda4af);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            /* Sobrece Estilo Captura */
+            .gift-box-aesthetic {
+                width: 300px;
+                height: 300px;
+                background: #1a1a1a;
+                border-radius: 1.5rem;
+                position: relative;
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8),
+                            inset 0 0 20px rgba(236, 72, 153, 0.05);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                overflow: hidden;
+            }
+
+            .ribbon-v {
+                position: absolute;
+                width: 50px;
+                height: 100%;
+                background: #ec4899;
+                box-shadow: 0 0 30px rgba(236, 72, 153, 0.4);
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .ribbon-h {
+                position: absolute;
+                height: 50px;
+                width: 100%;
+                background: #ec4899;
+                box-shadow: 0 0 30px rgba(236, 72, 153, 0.4);
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .gift-box-aesthetic::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+                background-size: 20px 20px;
+                pointer-events: none;
+            }
+
+            .polaroid {
+                background: white;
+                padding: 0.75rem;
+                padding-bottom: 2.5rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                border: 1px solid #f3f4f6;
+                cursor: pointer;
+                width: 220px;
+            }
+
+            .polaroid img {
+                width: 100%;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+                filter: sepia(0.1);
+            }
+
+            .polaroid:hover {
+                transform: scale(1.1) rotate(0deg) !important;
+                z-index: 50 !important;
+            }
+
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+            ::-webkit-scrollbar-track {
+                background: #0b0b0b;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: rgba(236, 72, 153, 0.2);
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script type="text/babel">
+            const { useState, useEffect } = React;
+            const { motion, AnimatePresence } = Motion;
+
+            const Icon = ({ name, className }) => {
+                useEffect(() => {
+                    lucide.createIcons();
+                }, []);
+                return <i data-lucide={name} className={className}></i>;
+            };
+
+            const PHOTOS = [
+                {
+                    url: "https://raw.githubusercontent.com/100522121/hbd-mk/refs/heads/main/i/1.jpg",
+                    caption: "Matcheando as always",
+                    rotate: 5,
+                    x: "120px",
+                    y: "-30px" // Subido para dar espacio al título
+                },
+                {
+                    url: "https://raw.githubusercontent.com/100522121/hbd-mk/refs/heads/main/i/2.jpg",
+                    caption: "Michi cumpleañero",
+                    rotate: -4,
+                    x: "-120px",
+                    y: "240px"
+                },
+                {
+                    url: "https://raw.githubusercontent.com/100522121/hbd-mk/refs/heads/main/i/3.png",
+                    caption: "Jugando al left xD",
+                    rotate: 10,
+                    x: "100px",
+                    y: "520px"
+                },
+                {
+                    url: "https://raw.githubusercontent.com/100522121/hbd-mk/refs/heads/main/i/4.jpg",
+                    caption: "Matchs legendarios",
+                    rotate: -8,
+                    x: "-90px",
+                    y: "800px" // Bajado para no tapar canción
+                }
+            ];
+
+            function App() {
+                const [isOpened, setIsOpened] = useState(false);
+                const [opening, setOpening] = useState(false);
+                const [selectedPhoto, setSelectedPhoto] = useState(null);
+
+                const handleOpenGift = () => {
+                    setOpening(true);
+                    setTimeout(() => {
+                        setIsOpened(true);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }, 1000);
+                };
+
+                return (
+                    <div className="relative min-h-screen aurora-bg font-sans">
+                        <AnimatePresence mode="wait">
+                            {!isOpened ? (
+                                <motion.section
+                                    key="intro"
+                                    exit={{ opacity: 0, scale: 0.9, filter: 'blur(15px)' }}
+                                    transition={{ duration: 0.8 }}
+                                    className="flex flex-col items-center justify-center min-h-screen p-6 text-center"
+                                >
+                                    <motion.div 
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        className="mb-12"
+                                    >
+                                        <p className="text-pink-400 font-medium tracking-[0.3em] uppercase text-[10px] mb-2 px-1">Para: Mokita</p>
+                                        <h1 className="text-3xl md:text-5xl font-serif italic text-white/90">Tienes una entrega especial...</h1>
+                                    </motion.div>
+
+                                    <motion.div 
+                                        className="relative"
+                                        whileHover={{ scale: 1.02 }}
+                                        onClick={handleOpenGift}
+                                    >
+                                        <div className="gift-box-aesthetic">
+                                            <div className="ribbon-v"></div>
+                                            <div className="ribbon-h"></div>
+                                            <div className="flex flex-col items-center z-20">
+                                                <div className="w-16 h-16 bg-pink-400 rounded-full flex items-center justify-center shadow-lg transform rotate-45 mb-2">
+                                                    <div className="w-8 h-8 border-4 border-pink-200/50 rounded-full"></div>
+                                                </div>
+                                                <span className="text-[10px] uppercase tracking-widest text-pink-200/40 font-bold">Ábreme</span>
+                                            </div>
+                                        </div>
+                                    </motion.div>
+
+                                    <motion.div 
+                                        animate={{ y: [0, 10, 0] }}
+                                        transition={{ duration: 2, repeat: Infinity }}
+                                        className="mt-12 opacity-30 flex flex-col items-center gap-2"
+                                    >
+                                        <Icon name="mouse-pointer-2" className="w-4 h-4 text-pink-300" />
+                                        <span className="text-[9px] uppercase tracking-[0.2em]">Dale click para revelarla</span>
+                                    </motion.div>
+                                </motion.section>
+                            ) : (
+                                <motion.main
+                                    key="content"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    className="relative z-10 max-w-5xl mx-auto px-6 py-16"
+                                >
+                                    <header className="text-center mb-24">
+                                        <h2 className="text-5xl md:text-9xl font-serif italic mb-6 gradient-text">
+                                            ㅤ
+                                        </h2>
+                                        <div className="inline-block px-4 py-1 rounded-full border border-pink-500/30 bg-pink-500/5 text-pink-300 text-[10px] uppercase tracking-widest mb-6">
+                                            Moka's Birthday • 2026
+                                        </div>
+                                        <h2 className="text-6xl md:text-7xl font-serif italic mb-1 gradient-text">
+                                            Feliz Cumple,
+                                        </h2>
+                                        <h2 className="text-6xl md:text-7xl font-serif italic mb-6 gradient-text">
+                                            Mokita!
+                                        </h2>
+                                        <p className="text-white opacity-40 text-[10px] tracking-[0.5em] uppercase">
+                                            29 de Abril • 2002
+                                        </p>
+                                    </header>
+
+                                    <section className="mb-24 center-box">
+                                        <div className="glass-card p-10 md:p-20 relative overflow-hidden">
+                                            <Icon name="quote" className="absolute top-0 right-0 p-8 w-16 h-16 opacity-5 md:w-32 md:h-32 text-pink-400" />
+                                            <div className="relative z-10 space-y-10">
+                                                <h3 className="text-pink-300 font-serif italic text-3xl">heyy,</h3>
+                                                <p className="md:text-1xl leading-relaxed font-light text-white/80">
+                                                    Quería desearte un muy feliz día y agradecerte por todos estos años. Que sean muchos más, disfruta mucho hoy y espero que te guste este pequeño detalle que hice para ti. <span className="text-pink-400 font-medium">Lots of love for you!</span>
+                                                </p>
+                                                <div className="flex flex-col gap-1">
+                                                    <p className="text-[10px] text-white/40 uppercase tracking-[0.3em] font-medium">De: Ari (con mucho cariño)</p>
+                                                </div>
+                                                <p className="md:text-1xl leading-relaxed font-light text-white/40">
+                                                    ↓
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <section className="mb-80 relative">
+                                        <div className="text-center mb-20">
+                                            <h3 className="font-serif italic text-4xl mb-4 text-white/90">Nuestros Recuerdos</h3>
+                                            <p className="text-white/20 text-[10px] uppercase tracking-widest italic relative z-50">
+                                                * Haz click en las fotos para verlas mejor *
+                                            </p>
+                                        </div>
+                                        
+                                        {/* Contenedor de fotos con margen superior para no pisar el titulo */}
+                                        <div className="relative min-h-[910px] flex items-center justify-center mt-10">
+                                            {PHOTOS.map((photo, i) => (
+                                                <motion.div 
+                                                    key={i}
+                                                    initial={{ opacity: 0, scale: 0.8 }}
+                                                    whileInView={{ opacity: 1, scale: 1 }}
+                                                    viewport={{ once: true }}
+                                                    className="absolute"
+                                                    style={{ 
+                                                        top: '0',
+                                                        zIndex: i,
+                                                        marginLeft: photo.x,
+                                                        marginTop: photo.y,
+                                                    }}
+                                                    onClick={() => setSelectedPhoto(photo)}
+                                                >
+                                                    <div 
+                                                        className="polaroid"
+                                                        style={{ transform: `rotate(${photo.rotate}deg)` }}
+                                                    >
+                                                        <img src={photo.url} alt={photo.caption} />
+                                                        <p className="font-handwriting text-gray-800 text-xl text-center mt-5">{photo.caption}</p>
+                                                    </div>
+                                                </motion.div>
+                                            ))}
+                                        </div>
+                                    </section>
+
+                                    <footer className="text-center space-y-24 pb-40 relative z-50">
+                                        <div className="max-w-md mx-auto px-6">
+                                            <h3 className="font-serif italic text-4xl mb-4 text-white/90">Canción del día</h3>
+                                            <p className="text-white/40 text-[10px] uppercase tracking-[0.4em] mb-12">Me pareció linda jsjs</p>
+                                            <div className="rounded-3xl overflow-hidden shadow-2xl transition-transform hover:scale-105 duration-700">
+                                                <iframe 
+                                                    style={{ borderRadius: '12px' }} 
+                                                    src="https://open.spotify.com/embed/track/5zQR0qoA4S1Iwj2bAwW03a?utm_source=generator&theme=0"  
+                                                    width="100%" 
+                                                    height="180" 
+                                                    frameBorder="0" 
+                                                    allowFullScreen 
+                                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                        </div>
+                                        
+                                        <div className="flex flex-col items-center gap-8">
+                                            <p className="text-pink-300 font-serif italic text-3xl tracking-wider">
+                                                hbd!! have funn
+                                            </p>
+                                            <p className="text-pink-300 font-serif text-3xl tracking-wider">
+                                                ♡
+                                            </p>
+                                        </div>
+                                    </footer>
+                                </motion.main>
+                            )}
+                        </AnimatePresence>
+
+                        {/* Modal Zoom Foto */}
+                        <AnimatePresence>
+                            {selectedPhoto && (
+                                <motion.div 
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    onClick={() => setSelectedPhoto(null)}
+                                    className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-8 backdrop-blur-md cursor-zoom-out"
+                                >
+                                    <motion.div 
+                                        initial={{ scale: 0.8, rotate: -5 }}
+                                        animate={{ scale: 1, rotate: 0 }}
+                                        exit={{ scale: 0.8, rotate: 5 }}
+                                        className="polaroid w-full max-w-lg pointer-events-none"
+                                    >
+                                        <img src={selectedPhoto.url} alt={selectedPhoto.caption} className="w-full h-auto" />
+                                        <p className="font-handwriting text-gray-800 text-4xl text-center mt-8">{selectedPhoto.caption}</p>
+                                    </motion.div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
+                );
+            }
+
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+            root.render(<App />);
+        </script>
+    </body>
+</html>
